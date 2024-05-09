@@ -1,0 +1,22 @@
+Файл для логирования трассировок медленных запросов
+Link doc: https://www.php.net/manual/ru/install.fpm.configuration.php
+
+--Открыть файл
+# nano /usr/local/ispconfig/server/conf/php_fpm_pool.conf.master 
+
+--Добавить текст в конце
+...
+slowlog=<tmpl_var name='document_root'>/log/php-fpm.slow.log
+include=/etc/php/pool.d-custom/*.conf
+include=<tmpl_var name='document_root'>/private/php-fpm*.conf
+
+--Создать директорию
+# mkdir -p /etc/php/pool.d-custom
+
+--Создать файл
+# nano /etc/php/pool.d-custom/global.conf
+
+--Добавить описание к файлу
+; указать тайм-аут в секундах
+request_slowlog_timeout=2 
+pm.status_path=/status
