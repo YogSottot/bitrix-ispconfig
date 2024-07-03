@@ -78,9 +78,8 @@ if [ $exitstatus = 0 ]; then
 			else
 				DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends php$PHP php$PHP-common php$PHP-gd php$PHP-mysql php$PHP-imap php$PHP-cli php$PHP-cgi php$PHP-curl php$PHP-intl php$PHP-pspell php$PHP-sqlite3 php$PHP-tidy php$PHP-xmlrpc php$PHP-xsl php$PHP-memcache php$PHP-imagick php$PHP-gettext php$PHP-zip php$PHP-mbstring php$PHP-soap php$PHP-fpm php$PHP-opcache php$PHP-apcu php$PHP-fpm
 			fi
-			rm /etc/apt/sources.list.d/php.list
 			DEBIAN_FRONTEND=noninteractive apt update
-			echo -e "https://t.me/Manualst/3\nИмя PHP $PHP\nПуть к бинарнику PHP FastCGI /usr/bin/php-cgi$PHP\nПуть к каталогу php.ini FastCGI /etc/php/$PHP/cgi/php.ini\nПуть к скрипту нициализации PHP-FPM php$PHP-fpm\nПуть к каталогу php.ini PHP-FPM /etc/php/$PHP/fpm/php.ini\nПуть до каталога пула PHP-FPM /etc/php/$PHP/fpm/pool.d/"
+			echo -e "https://t.me/Manualst/3\nИмя PHP $PHP\nПуть к бинарнику PHP FastCGI /usr/bin/php-cgi$PHP\nПуть к каталогу php.ini FastCGI /etc/php/$PHP/cgi/php.ini\nПуть к скрипту нициализации PHP-FPM php$PHP-fpm\nПуть к каталогу php.ini PHP-FPM /etc/php/$PHP/fpm/php.ini\nПуть до каталога пула PHP-FPM /etc/php/$PHP/fpm/pool.d/\nPHP-FPM socket directory /run/php/"
 		else
 			exit_func
 		fi
