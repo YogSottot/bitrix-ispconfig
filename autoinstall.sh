@@ -70,8 +70,8 @@ if [ $exitstatus = 0 ]; then
 			DEBIAN_FRONTEND=noninteractive apt update
 			DEBIAN_FRONTEND=noninteractive apt -y upgrade
 			DEBIAN_FRONTEND=noninteractive apt -y install --no-install-recommends gnupg
-			echo "deb https://packages.sury.org/php $(grep VERSION_CODENAME /etc/os-release | cut -d '=' -f 2) main" > /etc/apt/sources.list.d/php.list
-			wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
+			echo "deb https://ftp.mpi-inf.mpg.de/mirrors/linux/mirror/deb.sury.org/repositories/php $(grep VERSION_CODENAME /etc/os-release | cut -d '=' -f 2) main" > /etc/apt/sources.list.d/php.list
+			wget -qO /etc/apt/trusted.gpg.d/php.gpg https://ftp.mpi-inf.mpg.de/mirrors/linux/mirror/deb.sury.org/repositories/php/apt.gpg
 			DEBIAN_FRONTEND=noninteractive apt update
 			if [ $PHP = 8.0 ];then
 				DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends php$PHP php$PHP-common php$PHP-gd php$PHP-mysql php$PHP-imap php$PHP-cli php$PHP-cgi php$PHP-curl php$PHP-intl php$PHP-pspell php$PHP-sqlite3 php$PHP-tidy php$PHP-xsl php$PHP-common php$PHP-zip php$PHP-mbstring php$PHP-soap php$PHP-fpm php$PHP-opcache php$PHP-fpm
